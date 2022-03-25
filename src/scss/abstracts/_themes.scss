@@ -1,0 +1,70 @@
+@import 'variables';
+
+/* Theme Settings */
+$themes: (
+    'light': (
+        'header-text': $LT-white,
+        'main-bg': $LT-very-light-grayish-blue,
+        'page-text': $LT-dark-grayish-blue,
+        'todolist-bg': $LT-very-light-gray,
+        'todolist-text': $LT-very-dark-grayish-blue,
+        'task-done-text': $LT-light-grayish-blue,
+        'border': 1px solid $LT-very-light-grayish-blue,
+        'input-bg': $LT-very-light-gray,
+        'input-text': $LT-very-dark-grayish-blue,
+        'input-placeholder': $LT-dark-grayish-blue,
+        'filter-text': $LT-dark-grayish-blue,
+        'filter-active': $filter-text-active-color,
+        'button-fill': $LT-very-light-gray,
+        'hover': $LT-hover,
+        'active-btn': $filter-text-active-color,
+        'attribution-text': $LT-dark-grayish-blue,
+        'bg-img-mobile': $LT-wrapper-bg-image-mobile,
+        'bg-img-desktop': $LT-wrapper-bg-image-desktop,
+        "shadow": $LT-shadow,
+    ),
+    'dark': (
+        'header-text': $DT-white,
+        'main-bg': $DT-very-dark-blue,
+        'page-text': $DT-dark-grayish-blue,
+        'todolist-bg': $DT-very-dark-desaturated-blue,
+        'todolist-text': $DT-light-grayish-blue,
+        'task-done-text': $DT-very-dark-grayish-blue,
+        'border': 1px solid $DT-very-dark-grayish-blue,
+        'input-bg': $DT-very-dark-desaturated-blue,
+        'input-text': $DT-light-grayish-blue,
+        'input-placeholder': $DT-dark-grayish-blue,
+        'filter-text': $DT-dark-grayish-blue-2,
+        'filter-active': $filter-text-active-color,
+        'button-fill': $LT-very-light-gray,
+        'hover': $DT-hover,
+        'active-btn': $filter-text-active-color,
+        'attribution-text': $DT-white,
+        'bg-img-mobile': $DT-wrapper-bg-img-mobile,
+        'bg-img-desktop': $DT-wrapper-bg-img-desktop,
+        "shadow": $DT-shadow,
+    ),
+);
+
+@mixin themed() {
+
+    @each $theme,
+    $map in $themes {
+        .theme--#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key,
+            $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function t($key) {
+    @return map-get($theme-map, $key);
+}
