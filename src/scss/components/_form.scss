@@ -1,0 +1,59 @@
+form {
+
+    top: 10.8rem;
+
+    .input-wrapper {
+        width: 100%;
+        margin: auto;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+
+        @include themed() {
+            background-color: t('input-bg');
+            box-shadow: t('shadow');
+        }
+
+        input {
+            &:focus {
+                @include themed() {
+                    color: t('input-text');
+                }
+            }
+
+            &::placeholder {
+                @include themed() {
+                    color: t('input-placeholder');
+                }
+            }
+        }
+
+        input {
+            font-size: 1.125em;
+            letter-spacing: -0.025rem;
+            background-color: transparent;
+            border-color: transparent;
+            width: 100%;
+            position: relative;
+        }
+    }
+
+    input:focus {
+        outline: pink;
+    }
+
+    .input-check {
+        outline: none;
+        display: inline-block;
+        border-radius: 50%;
+        height: 2.4rem;
+        width: 2.4rem;
+        margin-right: 1rem;
+        background: transparent;
+
+        @include themed() {
+            border: t('border');
+        }
+    }
+
+}

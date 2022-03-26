@@ -156,6 +156,111 @@ h1 {
   font-weight: var(--weight-regular);
 }
 
+.attribution {
+  margin-top: 25rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.75em;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.theme--light .attribution {
+  color: #9394a5;
+}
+.theme--dark .attribution {
+  color: white;
+}
+@media screen and (max-width: 479px) {
+  .attribution {
+    margin-top: 50rem;
+  }
+}
+@media screen and (min-width: 581px) and (max-width: 768px) {
+  .attribution {
+    margin-top: 10rem;
+  }
+}
+@media screen and (min-width: 769px) {
+  .attribution {
+    margin-top: 10rem;
+  }
+}
+.attribution .attribution a {
+  color: #3e52a3;
+}
+
+form {
+  top: 10.8rem;
+}
+form .input-wrapper {
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+.theme--light form .input-wrapper {
+  background-color: #fafafa;
+  box-shadow: 0px 35px 50px #c2c3d6;
+}
+.theme--dark form .input-wrapper {
+  background-color: #25273c;
+  box-shadow: 0px 35px 50px black;
+}
+.theme--light form .input-wrapper input:focus {
+  color: #484b6a;
+}
+.theme--dark form .input-wrapper input:focus {
+  color: #cacde8;
+}
+.theme--light form .input-wrapper input::-moz-placeholder {
+  color: #9394a5;
+}
+.theme--light form .input-wrapper input:-ms-input-placeholder {
+  color: #9394a5;
+}
+.theme--light form .input-wrapper input::placeholder {
+  color: #9394a5;
+}
+.theme--dark form .input-wrapper input::-moz-placeholder {
+  color: #4d5066;
+}
+.theme--dark form .input-wrapper input:-ms-input-placeholder {
+  color: #4d5066;
+}
+.theme--dark form .input-wrapper input::placeholder {
+  color: #4d5066;
+}
+form .input-wrapper input {
+  font-size: 1.125em;
+  letter-spacing: -0.025rem;
+  background-color: transparent;
+  border-color: transparent;
+  width: 100%;
+  position: relative;
+}
+form input:focus {
+  outline: pink;
+}
+form .input-check {
+  outline: none;
+  display: inline-block;
+  border-radius: 50%;
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-right: 1rem;
+  background: transparent;
+}
+.theme--light form .input-check {
+  border: 1px solid #e4e5f1;
+}
+.theme--dark form .input-check {
+  border: 1px solid #393a4c;
+}
+
 /* Theme Settings */
 .header-container {
   width: 100%;
