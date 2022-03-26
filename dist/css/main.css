@@ -156,6 +156,44 @@ h1 {
   font-weight: var(--weight-regular);
 }
 
+/* Theme Settings */
+.header-container {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+@media screen and (min-width: 581px) and (max-width: 1024px) {
+  .header-container {
+    margin-top: 14rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .header-container {
+    margin-top: 10rem;
+  }
+}
+.header-container .title {
+  text-transform: uppercase;
+  letter-spacing: 1.5rem;
+  font-size: 2.222em;
+  font-weight: 700;
+}
+.theme--light .header-container .title {
+  color: white;
+}
+.theme--dark .header-container .title {
+  color: white;
+}
+.header-container .btn-toggle {
+  background-color: transparent;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
