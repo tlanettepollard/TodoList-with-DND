@@ -8,5 +8,13 @@
 @import 'base/helpers';
 @import 'base/typography';
 
+// Components
+@import 'components/filter';
+@import 'components/footer';
+@import 'components/form';
+@import 'components/header';
+@import 'components/task';
+@import 'components/tasklist';
+
 // Vendors
 @import 'vendors/normalize';
