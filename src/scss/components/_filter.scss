@@ -1,0 +1,47 @@
+.filter-control {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+
+    @include desktop {
+        padding: 0;
+        margin: 0;
+    }
+
+    .btn-group {
+        padding: .5rem;
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            font-size: 0.875em;
+            font-weight: $weight-bold;
+            padding: .5rem;
+
+            @include themed() {
+                color: t('page-text');
+            }
+
+            &:focus {
+                border: none;
+
+                @include themed() {
+                    color: t('active-btn');
+                }
+            }
+
+            &:hover {
+                @include themed() {
+                    color: t('todolist-text');
+                }
+            }
+
+            @media screen and (min-width: 1024px) {
+                font-size: 0.750em;
+            }
+        }
+
+    }
+}
