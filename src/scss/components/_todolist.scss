@@ -1,0 +1,190 @@
+.todo-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 56rem;
+    margin-top: 2.5rem;
+    border-radius: .5rem;
+    max-height: 50rem;
+
+    @include themed() {
+        background: t('todolist-bg');
+        box-shadow: t('shadow');
+    }
+
+    @media screen and (max-width: 374px) {
+        min-height: 60rem;
+    }
+
+    .todo-list {
+        .todo-item {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 2rem;
+            font-size: 1.1em;
+            letter-spacing: -0.025rem;
+
+            @include themed() {
+                color: t('todolist-text');
+                border-bottom: t('border');
+            }
+
+            .view-form {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            input:checked+label {
+                @include themed() {
+                    color: t('task-done-text');
+                }
+
+                text-decoration: line-through;
+            }
+
+            &:first-of-type {
+                border-top-left-radius: .5rem;
+                border-top-right-radius: .5rem;
+            }
+
+            .item-wrapper {
+                display: flex;
+                position: relative;
+                margin-right: 1rem;
+
+            }
+
+            // Checkbox style
+
+            input[type='checkbox'] {
+                appearance: none;
+                position: relative;
+                width: 2.4rem;
+                height: 2.4rem;
+                border-radius: 100%;
+                margin-right: 1rem;
+
+                @include themed() {
+                    border: t('border');
+                }
+
+            }
+
+
+            input[type='checkbox']:checked {
+                border-radius: 100%;
+                background: url('../../images/icon-check.svg'),
+                    linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+                background-repeat: no-repeat;
+                background-position: center;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            input[type='checkbox']:hover {
+                border-color: blue;
+            }
+
+            .edit-icon,
+            .delete-icon {
+                transition: opacity 0.5s ease-in-out;
+                background: transparent;
+                border: none;
+                padding: 0 1rem;
+                opacity: 0;
+
+            }
+
+            .edit-icon:hover,
+            .delete-icon:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    .bottom-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+
+
+        .remaining-text {
+            font-size: 0.875em;
+            letter-spacing: -0.19px;
+
+            @include themed() {
+                color: t('page-text');
+            }
+
+            &:hover {
+                @include themed() {
+                    color: t('todolist-text');
+                }
+            }
+        }
+
+        .clear-btn {
+            background: transparent;
+            border: none;
+            font-size: 0.875em;
+
+            @include themed() {
+                color: t('page-text');
+            }
+
+            &:hover {
+                @include themed() {
+                    color: t('todolist-text');
+                }
+            }
+        }
+
+        .desktop-size {
+            @include mobile {
+                display: none;
+                visibility: hidden;
+            }
+
+            @include tablet {
+                display: none;
+                visibility: hidden;
+            }
+
+            display: flex;
+            padding: 1rem;
+            margin: .5rem;
+
+
+        }
+    }
+
+
+}
+
+.mobile-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    border-radius: .5rem;
+
+    @include themed() {
+        background: t('todolist-bg');
+
+    }
+
+    @include desktop {
+        display: none;
+        visibility: hidden;
+    }
+}

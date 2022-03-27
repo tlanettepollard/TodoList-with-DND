@@ -164,7 +164,7 @@ Hi, I'm back again. I was working on another project. So, the last time I was he
 I've decided to redo the project over because I really want to included the DND. So, this is my new version.
 
 ### 03/26/2022
-Good morning. I am back to continue working on this new version of my todo app. 
+Good morning. I am back to continue working on this new version of my todo app. I added what I needed for my DND Todo List. Tomorrow I will try the DND. 
 ---
 
 Code holder
