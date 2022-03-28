@@ -82,22 +82,21 @@ export default function TodoItem(props) {
 
     return (
         <Draggable
-            key={props.id}
-            draggableId={props.id.toString()}
+            draggableId={props.id}
             index={props.index}
         >
             {(provided) => (
                 <li
                     {...provided.draggableProps}
-                    ref={provided.innerRef}
                     {...provided.dragHandleProps}
-                    key={props.id}
+                    ref={provided.innerRef}
                     className= 'todo-item pointer' 
                 >
                     {isEditing ? editingTemplate : viewTemplate}
                 </li> 
             )}
         </Draggable>  
+        
     )      
     
 }

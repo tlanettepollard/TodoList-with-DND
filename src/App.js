@@ -86,13 +86,24 @@ function toggleTaskCompleted(id) {
     FILTER_MAP('all');
   };
   
-  const handleDrop = (droppedItem) => {
-    if (!droppedItem.destination) return;
-    let updatedList = [...taskList];
-    const reorderedTasks = updatedList.splice(droppedItem.source.index, 1);
-    updatedList.splice(droppedItem.destination.index, 0, reorderedTasks);
-    setTasks(updatedList);
-  }
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) return;
+    else if (
+      destination.droppableId === source.droppableId && destination.index === source.index
+    )
+      return;
+    
+    const newTasks = this.state.tasks;
+    const draggedTasks = newTasks.find((tasks) => tasks.id === draggableId);
+    newTasks.splice(source.index, 1);
+    newTasks.splice(destination.index, 0, draggedTasks);
+
+    this.setState({
+      tasks: newTasks,
+    });
+  };
   
 
   return (
@@ -103,7 +114,7 @@ function toggleTaskCompleted(id) {
           <Form addTask={addTask} />
           
           <div className='todo-list-wrapper'>
-            <DragDropContext onDragEnd={handleDrop}>
+            <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId='todo-list'>
                 {(provided) => (
                   <ul
