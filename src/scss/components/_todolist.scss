@@ -5,7 +5,7 @@
     max-width: 56rem;
     margin-top: 2.5rem;
     border-radius: .5rem;
-    max-height: 50rem;
+    height: 100%;
 
     @include themed() {
         background: t('todolist-bg');

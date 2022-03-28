@@ -5,6 +5,7 @@ import TodoItem from './components/TodoItem';
 import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
 import ThemeProvider from './components/contexts/ThemeProvider';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
 import './scss/main.scss';
 
@@ -85,6 +86,13 @@ function toggleTaskCompleted(id) {
     FILTER_MAP('all');
   };
   
+  const handleDrop = (droppedItem) => {
+    if (!droppedItem.destination) return;
+    let updatedList = [...taskList];
+    const reorderedTasks = updatedList.splice(droppedItem.source.index, 1);
+    updatedList.splice(droppedItem.destination.index, 0, reorderedTasks);
+    setTasks(updatedList);
+  }
   
 
   return (
@@ -93,13 +101,23 @@ function toggleTaskCompleted(id) {
         <main className='main'>
           <Header />
           <Form addTask={addTask} />
+          
           <div className='todo-list-wrapper'>
-            <ul
-              className='todo-list'
-              aria-labelledby='list-heading'
-            >
-              {taskList}
-            </ul>
+            <DragDropContext onDragEnd={handleDrop}>
+              <Droppable droppableId='todo-list'>
+                {(provided) => (
+                  <ul
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    className='todo-list'
+                    aria-labelledby='list-heading'
+                  >
+                      {taskList}
+                      {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>
             <div className='bottom-navbar'>
               <p id='remaining-text' className='remaining-text'>
                 {headingText}
