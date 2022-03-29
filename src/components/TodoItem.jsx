@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import crossIcon from '../images/icon-cross.svg';
 import editIcon from '../images/icons8-edit.svg';
-//import { Draggable } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 export default function TodoItem(props) {
     const [isEditing, setEditing] = useState(false);
@@ -82,13 +82,20 @@ export default function TodoItem(props) {
     );
 
     return (
-        
-                <li
-                    className= 'todo-item pointer' 
-                >
-                    {isEditing ? editingTemplate : viewTemplate}
-                </li> 
-            
+    
+            <Draggable key={props.id} draggableId={props.id} index={props.index}>
+                {(provided) => (
+                    <li
+                        ref={provided.innerRef}
+                        {...provided.dragHandleProps}
+                        {...provided.dragHandleProps}
+                        className='todo-item pointer'
+                    >
+                        {isEditing ? editingTemplate : viewTemplate}
+                    </li>
+                )}
+            </Draggable>
+         
         
     )      
     
