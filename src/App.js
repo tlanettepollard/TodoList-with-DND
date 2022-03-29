@@ -5,7 +5,7 @@ import TodoItem from './components/TodoItem';
 import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
 import ThemeProvider from './components/contexts/ThemeProvider';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+//import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
 import './scss/main.scss';
 
@@ -86,26 +86,7 @@ function toggleTaskCompleted(id) {
     FILTER_MAP('all');
   };
   
-  const onDragEnd = (result) => {
-    const { destination, source, draggableId } = result;
-
-    if (!destination) return;
-    else if (
-      destination.droppableId === source.droppableId && destination.index === source.index
-    )
-      return;
-    
-    const newTasks = this.state.tasks;
-    const draggedTasks = newTasks.find((tasks) => tasks.id === draggableId);
-    newTasks.splice(source.index, 1);
-    newTasks.splice(destination.index, 0, draggedTasks);
-
-    this.setState({
-      tasks: newTasks,
-    });
-  };
-  
-
+ 
   return (
     <ThemeProvider>
       <div className='wrapper'>
@@ -114,25 +95,15 @@ function toggleTaskCompleted(id) {
           <Form addTask={addTask} />
           
           <div className='todo-list-wrapper'>
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Droppable droppableId='todo-list'>
-                {(provided) => (
-                  <ul
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                    className='todo-list'
-                    aria-labelledby='list-heading'
-                  >
-                      {taskList}
-                      {provided.placeholder}
-                  </ul>
-                )}
-              </Droppable>
-            </DragDropContext>
+            <ul
+              className="todo-list"
+              aria-labelledby="list-heading"
+            >
+              {taskList}   
+            </ul>
+
             <div className='bottom-navbar'>
-              <p id='remaining-text' className='remaining-text'>
-                {headingText}
-              </p>
+              <p id='remaining-text' className='remaining-text'>{headingText}</p>
 
               {/* Desktop Size only */}
               <div className='desktop-size filters'>
@@ -140,24 +111,24 @@ function toggleTaskCompleted(id) {
               </div>
               <div className='clear-btn-wrapper'>
                 <button
-                  type='button'
-                  className='btn clear-btn'
-                  onClick={clearCompletedTasks}
-                >
+                    type='button'
+                    className='clear-btn btn'
+                    onClick={clearCompletedTasks}
+                  >
                     Clear Completed
                 </button>
               </div>
             </div>
           </div>
-
-          {/* Mobile Size only */}
-          <div className='mobile-size filters'>
-            {filterList}
-          </div>
+        
+          {/* Mobile Size Only */}
+          <div className="mobile-size filters">
+             {filterList}
+          </div> 
         </main>
         <Footer />
-      </div>
-    </ThemeProvider>
+      </div> 
+    </ThemeProvider> 
   );
 }
 
