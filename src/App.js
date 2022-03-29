@@ -5,6 +5,7 @@ import TodoItem from './components/TodoItem';
 import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
 import ThemeProvider from './components/contexts/ThemeProvider';
+//import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
 import './scss/main.scss';
 
@@ -85,25 +86,24 @@ function toggleTaskCompleted(id) {
     FILTER_MAP('all');
   };
   
-  
-
+ 
   return (
     <ThemeProvider>
       <div className='wrapper'>
         <main className='main'>
           <Header />
           <Form addTask={addTask} />
+          
           <div className='todo-list-wrapper'>
             <ul
-              className='todo-list'
-              aria-labelledby='list-heading'
+              className="todo-list"
+              aria-labelledby="list-heading"
             >
-              {taskList}
+              {taskList}   
             </ul>
+
             <div className='bottom-navbar'>
-              <p id='remaining-text' className='remaining-text'>
-                {headingText}
-              </p>
+              <p id='remaining-text' className='remaining-text'>{headingText}</p>
 
               {/* Desktop Size only */}
               <div className='desktop-size filters'>
@@ -111,24 +111,24 @@ function toggleTaskCompleted(id) {
               </div>
               <div className='clear-btn-wrapper'>
                 <button
-                  type='button'
-                  className='btn clear-btn'
-                  onClick={clearCompletedTasks}
-                >
+                    type='button'
+                    className='clear-btn btn'
+                    onClick={clearCompletedTasks}
+                  >
                     Clear Completed
                 </button>
               </div>
             </div>
           </div>
-
-          {/* Mobile Size only */}
-          <div className='mobile-size filters'>
-            {filterList}
-          </div>
+        
+          {/* Mobile Size Only */}
+          <div className="mobile-size filters">
+             {filterList}
+          </div> 
         </main>
         <Footer />
-      </div>
-    </ThemeProvider>
+      </div> 
+    </ThemeProvider> 
   );
 }
 

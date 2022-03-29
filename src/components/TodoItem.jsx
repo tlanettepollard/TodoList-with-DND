@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import crossIcon from '../images/icon-cross.svg';
 import editIcon from '../images/icons8-edit.svg';
+//import { Draggable } from 'react-beautiful-dnd';
 
 export default function TodoItem(props) {
     const [isEditing, setEditing] = useState(false);
     const [newName, setNewName] = useState('');
+    
 
 
     // Set new task name
@@ -80,9 +82,14 @@ export default function TodoItem(props) {
     );
 
     return (
-        <li className='todo-item pointer'>
-            {isEditing ? editingTemplate : viewTemplate}
-        </li>    
-    );
+        
+                <li
+                    className= 'todo-item pointer' 
+                >
+                    {isEditing ? editingTemplate : viewTemplate}
+                </li> 
+            
+        
+    )      
     
 }
