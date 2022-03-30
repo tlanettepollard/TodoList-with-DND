@@ -20,6 +20,31 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All'); 
+  /*const [dragItem, setDragItem] = useState();
+
+
+  const handleDragStart = (index) => {
+    setDragItem(index);
+  };
+
+  const handleDragEnter = (e, index) => {
+    e.target.style.backgroundColor = 'todolist-bg';
+    const newList = [...taskList];
+    const item = newList[dragItem];
+    newList.splice(dragItem, 1);
+    newList.splice(index, 0, item);
+    setDragItem(index);
+    setTasks(newList);
+  };
+
+  const handleDragLeave = (e) => {
+    e.target.style.backgroundColor = 'todolist-bg';
+  };
+
+  const handleDrop = (e) => {
+    e.target.style.backgroundColor = 'todolist-bg';
+  } */
+
 
 function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map(task => {
@@ -51,7 +76,7 @@ function toggleTaskCompleted(id) {
     setTasks(editedTaskList);
   }
 
-  const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
+const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
     <TodoItem
       id={task.id}
       name={task.name}
@@ -85,19 +110,17 @@ function toggleTaskCompleted(id) {
     setTasks(tasks.filter((task) => !task.completed));
     FILTER_MAP('all');
   };
-  
 
   const handleOnDragEnd = (result) => {
-    let updatedTasks;
+    let updatedTasks
     if (!result.destination) return;
     const updatedList = Array.from(tasks)
     const [reorderedTasks] = updatedList.splice(result.source.index, 1)
-    updatedList.splice(result.destination, 0, reorderedTasks)
+    updatedList.splice(result.destination.index, 0, reorderedTasks)
     updatedTasks(updatedList)
   }
   
 
- 
   return (
     <ThemeProvider>
       <div className='wrapper'>
@@ -107,20 +130,23 @@ function toggleTaskCompleted(id) {
           
           <div className='todo-list-wrapper'>
             <DragDropContext onDragEnd={handleOnDragEnd}>
-              <Droppable droppableId='droppable'>
-                {(provided) => (
+              <Droppable
+                droppableId='dnd'
+              >
+                {(provided, snapshot) => (
                   <ul
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    className="todo-list"
+                    className="dnd todo-list"
                     aria-labelledby="list-heading"
                   >
-                    {taskList} 
+                    {taskList}
                     {provided.placeholder}
                   </ul>
+                  
                 )}
               </Droppable>
-          </DragDropContext>
+            </DragDropContext>  
             <div className='bottom-navbar'>
               <p id='remaining-text' className='remaining-text'>{headingText}</p>
 

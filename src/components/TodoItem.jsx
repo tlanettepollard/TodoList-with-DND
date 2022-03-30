@@ -8,6 +8,8 @@ export default function TodoItem(props) {
     const [newName, setNewName] = useState('');
     
 
+ 
+
 
     // Set new task name
     function handleChange(e) {
@@ -82,21 +84,19 @@ export default function TodoItem(props) {
     );
 
     return (
-    
-            <Draggable key={props.id} draggableId={props.id} index={props.index}>
-                {(provided) => (
-                    <li
-                        ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-                        {...provided.dragHandleProps}
-                        className='todo-item pointer'
-                    >
-                        {isEditing ? editingTemplate : viewTemplate}
-                    </li>
-                )}
-            </Draggable>
-         
+    <Draggable key={0} draggableId={props.id} index={0}>
+            {(provided)=> (
+                <li
+                    ref={provided.innerRef}
+                    {...provided.dragHandleProps}
+                    {...provided.draggableProps}
+                    className='todo-item pointer'
+                >
+                    {isEditing ? editingTemplate : viewTemplate}
+                </li>
+            )}
+        </Draggable>       
         
-    )      
+    )     
     
 }
