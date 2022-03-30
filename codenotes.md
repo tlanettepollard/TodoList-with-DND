@@ -181,6 +181,9 @@ Resources:
 - [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 - [How to Use HTML Drag and Drop API with React](https://w3collective.com/drag-drop-react/#:~:text=In%20this%20tutorial%20we'll,lists%2C%20voting%2C%20or%20quizes.)
 
+### 03/30/2022
+Good morning. Trying to DND again. 
+
 ---
 
 Code holder

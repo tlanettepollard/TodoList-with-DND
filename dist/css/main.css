@@ -378,6 +378,7 @@ form .input-check {
   padding: 2rem;
   font-size: 1.1em;
   letter-spacing: -0.025rem;
+  cursor: move;
 }
 .theme--light .todo-list-wrapper .todo-list .todo-item {
   color: #484b6a;

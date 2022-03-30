@@ -5,6 +5,7 @@ import TodoItem from './components/TodoItem';
 import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
 import ThemeProvider from './components/contexts/ThemeProvider';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
 import './scss/main.scss';
 
@@ -109,6 +110,15 @@ const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
     setTasks(tasks.filter((task) => !task.completed));
     FILTER_MAP('all');
   };
+
+  const handleOnDragEnd = (result) => {
+    let updatedTasks
+    if (!result.destination) return;
+    const updatedList = Array.from(tasks)
+    const [reorderedTasks] = updatedList.splice(result.source.index, 1)
+    updatedList.splice(result.destination.index, 0, reorderedTasks)
+    updatedTasks(updatedList)
+  }
   
 
   return (
@@ -119,14 +129,21 @@ const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
           <Form addTask={addTask} />
           
           <div className='todo-list-wrapper'>
-            
-            <ul
-              className="dnd todo-list"
-              aria-labelledby="list-heading"
-            >
-               {taskList}
-            </ul>
-                
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+              <Droppable droppableId='dnd'>
+                {(provided) => (
+                  <ul
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className="dnd todo-list"
+                    aria-labelledby="list-heading"
+                  >
+                    {taskList}
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>  
             <div className='bottom-navbar'>
               <p id='remaining-text' className='remaining-text'>{headingText}</p>
 
