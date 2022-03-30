@@ -130,8 +130,10 @@ const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
           
           <div className='todo-list-wrapper'>
             <DragDropContext onDragEnd={handleOnDragEnd}>
-              <Droppable droppableId='dnd'>
-                {(provided) => (
+              <Droppable
+                droppableId='dnd'
+              >
+                {(provided, snapshot) => (
                   <ul
                     {...provided.droppableProps}
                     ref={provided.innerRef}
@@ -141,6 +143,7 @@ const taskList = tasks.filter(FILTER_MAP[filter]).map(task => (
                     {taskList}
                     {provided.placeholder}
                   </ul>
+                  
                 )}
               </Droppable>
             </DragDropContext>  

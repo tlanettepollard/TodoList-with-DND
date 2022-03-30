@@ -84,7 +84,7 @@ export default function TodoItem(props) {
     );
 
     return (
-        <Draggable key={props.id} draggableId={props.id} index={0}>
+    <Draggable key={0} draggableId={props.id} index={0}>
             {(provided)=> (
                 <li
                     ref={provided.innerRef}
