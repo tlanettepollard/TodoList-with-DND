@@ -182,7 +182,7 @@ Resources:
 - [How to Use HTML Drag and Drop API with React](https://w3collective.com/drag-drop-react/#:~:text=In%20this%20tutorial%20we'll,lists%2C%20voting%2C%20or%20quizes.)
 
 ### 03/30/2022
-Good morning. Trying to DND again. 
+Good morning. Trying to DND again. I was able to add the code without getting console errors. However, the dragged item won't stay in the placeholder. 
 
 ---
 
