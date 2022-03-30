@@ -172,6 +172,15 @@ Good morning. I am back to continue working on this new version of my todo app. 
 Good afternoon. Time does get away from me. So I'm working on my todo list with DND today.
 Still had problems with setting up the dnd.
 
+### 03/29/2022
+
+Good Morning. Today I'm going to try again with DND. This time I may use the HTML Drag and Drop API. I had such a tough time getting the React DND to work with my app. I'm determined to get this to work.
+
+Resources:
+
+- [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+- [How to Use HTML Drag and Drop API with React](https://w3collective.com/drag-drop-react/#:~:text=In%20this%20tutorial%20we'll,lists%2C%20voting%2C%20or%20quizes.)
+
 ---
 
 Code holder
