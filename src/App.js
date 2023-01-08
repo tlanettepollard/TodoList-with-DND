@@ -4,6 +4,7 @@ import Form from './components/Form';
 import TodoItem from './components/TodoItem';
 import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
+//import './data';
 import ThemeProvider from './components/contexts/ThemeProvider';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
