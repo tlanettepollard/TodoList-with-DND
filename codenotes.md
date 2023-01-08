@@ -184,6 +184,8 @@ Resources:
 ### 03/30/2022
 Good morning. Trying to DND again. I was able to add the code without getting console errors. However, the dragged item won't stay in the placeholder. 
 
+### 01/08/2023
+Happy New Year! It has been a long time since I've worked on this project. I did get my React Nanodegree from Udacity. It's time for me to keep my skills current. The last time I worked on this project, my dragged item wouldn't stay in the place where I dragged it to. 
 ---
 
 Code holder
