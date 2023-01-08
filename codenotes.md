@@ -187,13 +187,11 @@ Good morning. Trying to DND again. I was able to add the code without getting co
 
 ### 01/08/2023
 
-Happy New Year! It has been a long time since I've worked on this project. I did get my React Nanodegree from Udacity. It's time for me to keep my skills current. The last time I worked on this project, my dragged item wouldn't stay in the place where I dragged it to.
+Happy New Year! It has been a long time since I've worked on this project. I did get my React Nanodegree from Udacity. It's time for me to keep my skills current. The last time I worked on this project, my dragged item wouldn't stay in the place where I dragged it to. I tried saving the item order state when dragging the item. It didn't work. I will have to look at it next time.
 
 Resources:
 
 - [How to add Drag and Drop in React with React Beautiful DND](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/)
-
-
 
 ---
 
