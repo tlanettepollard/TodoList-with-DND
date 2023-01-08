@@ -174,7 +174,7 @@ Still had problems with setting up the dnd.
 
 ### 03/29/2022
 
-Good Morning. Today I'm going to try again with DND. This time I may use the HTML Drag and Drop API. I had such a tough time getting the React DND to work with my app. I'm determined to get this to work.
+Good Morning. Today I'm going to try again with DND. This time I may use the HTML Drag and Drop API. I had such a tough time getting the React DND to work with my app. I'm determined to get this to work... I got sidetracked but I'm back. I have the dragging working, but the dropping is wonky. The dragged item won't stay in the placeholder.
 
 Resources:
 
@@ -182,7 +182,18 @@ Resources:
 - [How to Use HTML Drag and Drop API with React](https://w3collective.com/drag-drop-react/#:~:text=In%20this%20tutorial%20we'll,lists%2C%20voting%2C%20or%20quizes.)
 
 ### 03/30/2022
-Good morning. Trying to DND again. I was able to add the code without getting console errors. However, the dragged item won't stay in the placeholder. 
+
+Good morning. Trying to DND again. I was able to add the code without getting console errors. However, the dragged item won't stay in the placeholder.
+
+### 01/08/2023
+
+Happy New Year! It has been a long time since I've worked on this project. I did get my React Nanodegree from Udacity. It's time for me to keep my skills current. The last time I worked on this project, my dragged item wouldn't stay in the place where I dragged it to.
+
+Resources:
+
+- [How to add Drag and Drop in React with React Beautiful DND](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/)
+
+
 
 ---
 
