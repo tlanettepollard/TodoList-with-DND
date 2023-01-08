@@ -106,6 +106,7 @@ function App(props) {
 										{...provided.droppableProps}
 										ref={provided.innerRef}>
 										{taskList}
+										{provided.placeholder}
 									</ul>
 								)}
 							</Droppable>
