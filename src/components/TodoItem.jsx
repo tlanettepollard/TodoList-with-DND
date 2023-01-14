@@ -5,96 +5,99 @@ import { Draggable } from 'react-beautiful-dnd';
 //import { Droppable } from 'react-beautiful-dnd';
 
 export default function TodoItem(props) {
-    const [isEditing, setEditing] = useState(false);
-    const [newName, setNewName] = useState('');
-    
+	const [isEditing, setEditing] = useState(false);
+	const [newName, setNewName] = useState('');
 
- 
+	// Set new task name
+	function handleChange(e) {
+		setNewName(e.target.value);
+	}
 
+	// Handle submit on new edited todo
+	function handleSubmit(e) {
+		e.preventDefault();
+		props.editTask(props.id, newName);
+		setNewName('');
+		setEditing(false);
+	}
 
-    // Set new task name
-    function handleChange(e) {
-        setNewName(e.target.value);
-    }
+	const editingTemplate = (
+		<form className='edit-form' onSubmit={handleSubmit}>
+			<div className='form-group'>
+				<label className='todo-label' htmlFor={props.id}>
+					New name for {props.name}
+				</label>
+				<input
+					id={props.id}
+					className='todo-text'
+					index={props.id}
+					type='text'
+					value={newName}
+					onChange={handleChange}
+				/>
+			</div>
+			<div className='btn-group'>
+				<button
+					type='button'
+					className='btn todo-cancel'
+					onClick={() => setEditing(false)}>
+					Cancel <span className='visually-hidden'>renaming {props.name}</span>
+				</button>
+				<button type='submit' className='btn todo-edit'>
+					Save{' '}
+					<span className='visually-hidden'>new name for {props.name}</span>
+				</button>
+			</div>
+		</form>
+	);
 
-    // Handle submit on new edited todo
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.editTask(props.id, newName);
-        setNewName('');
-        setEditing(false);
-    }
+	const viewTemplate = (
+		<div className='view-form'>
+			<div className='todo-view'>
+				<div className='item-wrapper'>
+					<input
+						id={props.id}
+						index={props.id}
+						className='item-checkbox pointer'
+						type='checkbox'
+						defaultChecked={props.completed}
+						onChange={() => props.toggleTaskCompleted(props.id)}
+					/>
+					<label className='pointer' htmlFor={props.id}>
+						{props.name}
+					</label>
+				</div>
+			</div>
+			<div className='btn-group'>
+				<button
+					type='button'
+					className='btn edit-icon pointer'
+					onClick={() => setEditing(true)}>
+					<img src={editIcon} alt='icon-edit' />
+					<span className='visually-hidden'>{props.name}</span>
+				</button>
+				<button
+					type='button'
+					className='btn delete-icon pointer'
+					onClick={() => props.deleteTask(props.id)}>
+					<img src={crossIcon} alt='icon-cross' />{' '}
+					<span className='visually-hidden'>{props.name}</span>
+				</button>
+			</div>
+		</div>
+	);
 
-
-    const editingTemplate = (
-        <form className='edit-form' onSubmit={handleSubmit}>
-            <div className='form-group'>
-                <label className='todo-label' htmlFor={props.id}>
-                    New name for {props.name}
-                </label>
-                <input
-                    id={props.id}
-                    className='todo-text'
-                    type='text'
-                    value={newName}
-                    onChange={handleChange}
-                />
-            </div>
-            <div className='btn-group'>
-                <button type='button' className='btn todo-cancel' onClick={() => setEditing(false)}>
-                    Cancel <span className='visually-hidden'>renaming {props.name}</span>
-                </button>
-                <button type='submit' className='btn todo-edit'>
-                    Save <span className='visually-hidden'>new name for {props.name}</span>
-                </button>
-            </div>
-        </form>
-    );
-
-    const viewTemplate = (
-        <div className='view-form'>
-            <div className='todo-view'>
-                <div className='item-wrapper'>
-                    <input
-                        id={props.id}
-                        className='item-checkbox pointer'
-                        type='checkbox'
-                        defaultChecked={props.completed}
-                        onChange={() => props.toggleTaskCompleted(props.id)}
-                    />
-                    <label className='pointer' htmlFor={props.id}>
-                        {props.name}
-                    </label>
-                </div>
-                
-            </div>
-            <div className='btn-group'>
-                <button type='button' className='btn edit-icon pointer' onClick={() => setEditing(true)}>
-                    <img src={editIcon} alt='icon-edit' />
-                    <span className='visually-hidden'>{props.name}</span>
-                </button>
-                <button
-                    type='button'
-                    className='btn delete-icon pointer'
-                    onClick={() => props.deleteTask(props.id)}
-                >
-                    <img src={crossIcon} alt='icon-cross' /> <span className='visually-hidden'>{props.name}</span>
-                </button>
-            </div>
-        </div>
-    );
-
-    return (
-        <Draggable key={props.id} draggableId={props.id}>
-            {(provided) => (
-            <li 
-                className='todo-item pointer' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
-            >
-                {isEditing ? editingTemplate : viewTemplate}
-                
-                </li> 
-            )}    
-        </Draggable>
-    )     
-    
+	return (
+		<Draggable key={props.id} draggableId={props.id} index={props.index}>
+			{(provided) => (
+				<li
+					className='todo-item pointer'
+					ref={provided.innerRef}
+					{...provided.draggableProps}
+					{...provided.dragHandleProps}>
+					{isEditing ? editingTemplate : viewTemplate}
+				</li>
+			)}
+		</Draggable>
+	);
 }

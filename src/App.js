@@ -21,18 +21,29 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
 	const [tasks, setTasks] = useState(props.tasks);
 	const [filter, setFilter] = useState('All');
-	const [items, updateItems] = useState(tasks);
+	//const [items, updateItems] = useState(tasks);
 
-	//let onDragEnd = (result) => { };
-
-	function handleOnDragEnd(result) {
+	/*function handleOnDragEnd(result) {
 		if (!result.destination) return;
 
 		const newItems = Array.from(items);
-		const [reorderedItems] = newItems.splice(result.sourc.index, 1);
+		const [reorderedItems] = newItems.splice(result.source.index, 1);
 		items.splice(result.destination.index, 0, reorderedItems);
 		updateItems(newItems);
-	}
+	}*/
+
+	let handleOnDragEnd = (result) => {
+		if (!result.destination) {
+			return;
+		}
+		let sourceIdx = parseInt(result.source.index);
+		let destIdx = parseInt(result.destination.index);
+		let draggedLink = tasks[0].list[sourceIdx];
+		let newList = tasks[0].list.slice();
+		newList.splice(sourceIdx, 1);
+		newList.splice(destIdx, 0, draggedLink);
+		tasks[0].list = newList;
+	};
 
 	function toggleTaskCompleted(id) {
 		const updatedTasks = tasks.map((task) => {
@@ -66,12 +77,13 @@ function App(props) {
 
 	const taskList = tasks
 		.filter(FILTER_MAP[filter])
-		.map((task) => (
+		.map((task, index) => (
 			<TodoItem
 				id={task.id}
 				name={task.name}
 				completed={task.completed}
 				key={task.id}
+				index={task.index}
 				toggleTaskCompleted={toggleTaskCompleted}
 				deleteTask={deleteTask}
 				editTask={editTask}
@@ -109,10 +121,10 @@ function App(props) {
 
 					<div className='todo-list-wrapper'>
 						<DragDropContext onDragEnd={handleOnDragEnd}>
-							<Droppable droppableId={tasks}>
+							<Droppable droppableId={taskList} index={taskList.index}>
 								{(provided) => (
 									<ul
-										className='todo-list'
+										className='taskList'
 										aria-labelledby='list-heading'
 										{...provided.droppableProps}
 										ref={provided.innerRef}>
