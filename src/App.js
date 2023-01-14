@@ -38,11 +38,11 @@ function App(props) {
 		}
 		let sourceIdx = parseInt(result.source.index);
 		let destIdx = parseInt(result.destination.index);
-		let draggedLink = tasks[0].list[sourceIdx];
-		let newList = tasks[0].list.slice();
+		let draggedLink = tasks[0].taskList[sourceIdx];
+		let newList = tasks[0].taskList.slice();
 		newList.splice(sourceIdx, 1);
 		newList.splice(destIdx, 0, draggedLink);
-		tasks[0].list = newList;
+		tasks[0].taskList = newList;
 	};
 
 	function toggleTaskCompleted(id) {
@@ -121,7 +121,7 @@ function App(props) {
 
 					<div className='todo-list-wrapper'>
 						<DragDropContext onDragEnd={handleOnDragEnd}>
-							<Droppable droppableId={taskList} index={taskList.index}>
+							<Droppable droppableId='taskList' index={props.index}>
 								{(provided) => (
 									<ul
 										className='taskList'

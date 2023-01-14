@@ -30,7 +30,7 @@ export default function TodoItem(props) {
 				<input
 					id={props.id}
 					className='todo-text'
-					index={props.id}
+					index={props.index}
 					type='text'
 					value={newName}
 					onChange={handleChange}
@@ -57,7 +57,7 @@ export default function TodoItem(props) {
 				<div className='item-wrapper'>
 					<input
 						id={props.id}
-						index={props.id}
+						index={props.index}
 						className='item-checkbox pointer'
 						type='checkbox'
 						defaultChecked={props.completed}
