@@ -88,7 +88,7 @@ export default function TodoItem(props) {
 	);
 
 	return (
-		<Draggable key={props.id} draggableId={props.id} index={props.id}>
+		<Draggable key={props.id} draggableId={props.id} index={props.index}>
 			{(provided) => (
 				<li
 					className='todo-item pointer'
