@@ -23,13 +23,11 @@ function App(props) {
 	const [filter, setFilter] = useState('All');
 	const [items, updateItems] = useState(tasks);
 
-	//let onDragEnd = (result) => { };
-
 	function handleOnDragEnd(result) {
 		if (!result.destination) return;
 
 		const newItems = Array.from(items);
-		const [reorderedItems] = newItems.splice(result.sourc.index, 1);
+		const [reorderedItems] = newItems.splice(result.source.index, 1);
 		items.splice(result.destination.index, 0, reorderedItems);
 		updateItems(newItems);
 	}
@@ -66,12 +64,13 @@ function App(props) {
 
 	const taskList = tasks
 		.filter(FILTER_MAP[filter])
-		.map((task) => (
+		.map((task, index) => (
 			<TodoItem
 				id={task.id}
 				name={task.name}
 				completed={task.completed}
 				key={task.id}
+				index={task.index}
 				toggleTaskCompleted={toggleTaskCompleted}
 				deleteTask={deleteTask}
 				editTask={editTask}
@@ -109,7 +108,7 @@ function App(props) {
 
 					<div className='todo-list-wrapper'>
 						<DragDropContext onDragEnd={handleOnDragEnd}>
-							<Droppable droppableId={tasks}>
+							<Droppable droppableId={tasks.id} index={props.id}>
 								{(provided) => (
 									<ul
 										className='todo-list'
