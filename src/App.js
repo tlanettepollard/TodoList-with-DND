@@ -83,7 +83,7 @@ function App(props) {
 				name={task.name}
 				completed={task.completed}
 				key={task.id}
-				index={task.index}
+				index={index}
 				toggleTaskCompleted={toggleTaskCompleted}
 				deleteTask={deleteTask}
 				editTask={editTask}
