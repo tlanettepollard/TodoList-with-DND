@@ -22,7 +22,7 @@ html {
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: visible;
   position: relative;
   margin: 0;
   padding: 0;

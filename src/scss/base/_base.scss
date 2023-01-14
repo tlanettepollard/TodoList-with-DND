@@ -2,33 +2,32 @@
 *,
 *::before,
 *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: 1px solid black;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: 1px solid black;
 }
 
 html {
-    font: 62.5% / 1.15 sans-serif;
+	font: 62.5% / 1.15 sans-serif;
 }
 
 html,
 body {
-    overflow-x: hidden;
-    position: relative;
-    margin: 0;
-    padding: 0;
+	overflow: visible;
+	position: relative;
+	margin: 0;
+	padding: 0;
 }
-
 
 h1,
 h2 {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 body,
@@ -38,96 +37,88 @@ optgroup,
 select,
 textarea,
 button {
-    margin: 0;
+	margin: 0;
 }
 
 button,
 input {
-    overflow: visible;
+	overflow: visible;
 }
 
-input[type="text"] {
-    border-radius: 0;
+input[type='text'] {
+	border-radius: 0;
 }
 
 body {
-    width: 100%;
-    height: 100vh;
+	width: 100%;
+	height: 100vh;
 
-    @include themed() {
-        background-color: t('main-bg');
-    }
+	@include themed() {
+		background-color: t('main-bg');
+	}
 }
 
 /* Added Reset */
 
-
 .pointer {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 /* Global Styles */
 .wrapper {
-    width: 100vw;
-    min-height: 100vh;
-    //padding-top: 5rem;
-    //padding-bottom: 5rem;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+	width: 100vw;
+	min-height: 100vh;
+	//padding-top: 5rem;
+	//padding-bottom: 5rem;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
 
-    @include themed() {
-        background-color: t('main-bg');
-        background-image: t('bg-img-mobile');
-    }
+	@include themed() {
+		background-color: t('main-bg');
+		background-image: t('bg-img-mobile');
+	}
 
-    @media screen and (min-width: 1025px) {
-        @include themed () {
-            background-image: t('bg-img-desktop');
-        }
+	@media screen and (min-width: 1025px) {
+		@include themed() {
+			background-image: t('bg-img-desktop');
+		}
+	}
 
-    }
-
-    @media screen and (max-width: 479px) {
-        min-height: 150vh;
-    }
-
+	@media screen and (max-width: 479px) {
+		min-height: 150vh;
+	}
 }
 
 .main {
-    width: 90%;
-    height: 95vh;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+	width: 90%;
+	height: 95vh;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
 
-    @media screen and (max-width: 375px) {
-        height: 100vh;
-    }
+	@media screen and (max-width: 375px) {
+		height: 100vh;
+	}
 
-    @include tablet {
-        width: 50rem;
-        height: 95vh;
-    }
+	@include tablet {
+		width: 50rem;
+		height: 95vh;
+	}
 
-    @include desktop {
-        max-width: 56rem;
-        height: 100vh;
-
-    }
+	@include desktop {
+		max-width: 56rem;
+		height: 100vh;
+	}
 }
-
-
 
 .visually-hidden {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
-
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
 }
-
 
 /* End Global Styles */
