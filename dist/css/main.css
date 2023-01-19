@@ -369,7 +369,7 @@ form .input-check {
     min-height: 60rem;
   }
 }
-.todo-list-wrapper .taskList .todo-item {
+.todo-list-wrapper .taskList .todo {
   position: relative;
   width: 100%;
   display: flex;
@@ -380,39 +380,39 @@ form .input-check {
   letter-spacing: -0.025rem;
   cursor: move;
 }
-.theme--light .todo-list-wrapper .taskList .todo-item {
+.theme--light .todo-list-wrapper .taskList .todo {
   color: hsl(235deg, 19%, 35%);
   border-bottom: 1px solid hsl(236deg, 33%, 92%);
 }
-.theme--dark .todo-list-wrapper .taskList .todo-item {
+.theme--dark .todo-list-wrapper .taskList .todo {
   color: hsl(234deg, 39%, 85%);
   border-bottom: 1px solid hsl(237deg, 14%, 26%);
 }
-.todo-list-wrapper .taskList .todo-item .view-form {
+.todo-list-wrapper .taskList .todo .view-form {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.todo-list-wrapper .taskList .todo-item input:checked + label {
+.todo-list-wrapper .taskList .todo input:checked + label {
   text-decoration: line-through;
 }
-.theme--light .todo-list-wrapper .taskList .todo-item input:checked + label {
+.theme--light .todo-list-wrapper .taskList .todo input:checked + label {
   color: hsl(233deg, 11%, 84%);
 }
-.theme--dark .todo-list-wrapper .taskList .todo-item input:checked + label {
+.theme--dark .todo-list-wrapper .taskList .todo input:checked + label {
   color: hsl(237deg, 14%, 26%);
 }
-.todo-list-wrapper .taskList .todo-item:first-of-type {
+.todo-list-wrapper .taskList .todo:first-of-type {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
-.todo-list-wrapper .taskList .todo-item .item-wrapper {
+.todo-list-wrapper .taskList .todo .item-wrapper {
   display: flex;
   position: relative;
   margin-right: 1rem;
 }
-.todo-list-wrapper .taskList .todo-item input[type=checkbox] {
+.todo-list-wrapper .taskList .todo input[type=checkbox] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -422,34 +422,34 @@ form .input-check {
   border-radius: 100%;
   margin-right: 1rem;
 }
-.theme--light .todo-list-wrapper .taskList .todo-item input[type=checkbox] {
+.theme--light .todo-list-wrapper .taskList .todo input[type=checkbox] {
   border: 1px solid hsl(236deg, 33%, 92%);
 }
-.theme--dark .todo-list-wrapper .taskList .todo-item input[type=checkbox] {
+.theme--dark .todo-list-wrapper .taskList .todo input[type=checkbox] {
   border: 1px solid hsl(237deg, 14%, 26%);
 }
-.todo-list-wrapper .taskList .todo-item input[type=checkbox]:checked {
+.todo-list-wrapper .taskList .todo input[type=checkbox]:checked {
   border-radius: 100%;
   background: url("../../images/icon-check.svg"), linear-gradient(135deg, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
   background-repeat: no-repeat;
   background-position: center;
 }
-.todo-list-wrapper .taskList .todo-item input[type=checkbox]:checked:focus {
+.todo-list-wrapper .taskList .todo input[type=checkbox]:checked:focus {
   outline: none;
 }
-.todo-list-wrapper .taskList .todo-item input[type=checkbox]:hover {
+.todo-list-wrapper .taskList .todo input[type=checkbox]:hover {
   border-color: blue;
 }
-.todo-list-wrapper .taskList .todo-item .edit-icon,
-.todo-list-wrapper .taskList .todo-item .delete-icon {
+.todo-list-wrapper .taskList .todo .edit-icon,
+.todo-list-wrapper .taskList .todo .delete-icon {
   transition: opacity 0.5s ease-in-out;
   background: transparent;
   border: none;
   padding: 0 1rem;
   opacity: 0;
 }
-.todo-list-wrapper .taskList .todo-item .edit-icon:hover,
-.todo-list-wrapper .taskList .todo-item .delete-icon:hover {
+.todo-list-wrapper .taskList .todo .edit-icon:hover,
+.todo-list-wrapper .taskList .todo .delete-icon:hover {
   opacity: 1;
 }
 .todo-list-wrapper .bottom-navbar {
