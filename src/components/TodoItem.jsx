@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import crossIcon from '../images/icon-cross.svg';
 import editIcon from '../images/icons8-edit.svg';
-//import { Draggable } from 'react-beautiful-dnd';
-//import { Droppable } from 'react-beautiful-dnd';
+
 
 export default function TodoItem(props) {
 	const [isEditing, setEditing] = useState(false);
