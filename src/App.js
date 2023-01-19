@@ -6,7 +6,7 @@ import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
 //import './data';
 import ThemeProvider from './components/contexts/ThemeProvider';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+//import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
 import './scss/main.scss';
 
@@ -32,18 +32,7 @@ function App(props) {
 		updateItems(newItems);
 	}*/
 
-	let handleOnDragEnd = (result) => {
-		if (!result.destination) {
-			return;
-		}
-		let sourceIdx = parseInt(result.source.index);
-		let destIdx = parseInt(result.destination.index);
-		let draggedLink = tasks[0].taskList[sourceIdx];
-		let newList = tasks[0].taskList.slice();
-		newList.splice(sourceIdx, 1);
-		newList.splice(destIdx, 0, draggedLink);
-		tasks[0].taskList = newList;
-	};
+	
 
 	function toggleTaskCompleted(id) {
 		const updatedTasks = tasks.map((task) => {
@@ -83,7 +72,7 @@ function App(props) {
 				name={task.name}
 				completed={task.completed}
 				key={task.id}
-				index={task.index}
+				index={index}
 				toggleTaskCompleted={toggleTaskCompleted}
 				deleteTask={deleteTask}
 				editTask={editTask}
@@ -120,20 +109,10 @@ function App(props) {
 					<Form addTask={addTask} />
 
 					<div className='todo-list-wrapper'>
-						<DragDropContext onDragEnd={handleOnDragEnd}>
-							<Droppable droppableId='taskList' index={props.index}>
-								{(provided) => (
-									<ul
-										className='taskList'
-										aria-labelledby='list-heading'
-										{...provided.droppableProps}
-										ref={provided.innerRef}>
-										{taskList}
-										{provided.placeholder}
-									</ul>
-								)}
-							</Droppable>
-						</DragDropContext>
+						<ul className='taskList' aria-labelledby='list-heading'>
+							{taskList}
+						</ul>
+
 						<div className='bottom-navbar'>
 							<p id='remaining-text' className='remaining-text'>
 								{headingText}
