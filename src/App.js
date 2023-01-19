@@ -6,7 +6,6 @@ import Filter from './components/Filter.jsx';
 import Footer from './components/Footer';
 //import './data';
 import ThemeProvider from './components/contexts/ThemeProvider';
-//import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { nanoid } from 'nanoid';
 import './scss/main.scss';
 
@@ -22,17 +21,6 @@ function App(props) {
 	const [tasks, setTasks] = useState(props.tasks);
 	const [filter, setFilter] = useState('All');
 	//const [items, updateItems] = useState(tasks);
-
-	/*function handleOnDragEnd(result) {
-		if (!result.destination) return;
-
-		const newItems = Array.from(items);
-		const [reorderedItems] = newItems.splice(result.source.index, 1);
-		items.splice(result.destination.index, 0, reorderedItems);
-		updateItems(newItems);
-	}*/
-
-	
 
 	function toggleTaskCompleted(id) {
 		const updatedTasks = tasks.map((task) => {

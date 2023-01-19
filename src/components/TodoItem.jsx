@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import crossIcon from '../images/icon-cross.svg';
 import editIcon from '../images/icons8-edit.svg';
 
-
 export default function TodoItem(props) {
 	const [isEditing, setEditing] = useState(false);
 	const [newName, setNewName] = useState('');
@@ -62,7 +61,7 @@ export default function TodoItem(props) {
 						defaultChecked={props.completed}
 						onChange={() => props.toggleTaskCompleted(props.id)}
 					/>
-					<label className='pointer' htmlFor={props.id}>
+					<label className='todo-label pointer' htmlFor={props.id}>
 						{props.name}
 					</label>
 				</div>
@@ -87,8 +86,7 @@ export default function TodoItem(props) {
 	);
 
 	return (
-		<li
-			className='todo-item pointer'>
+		<li className='todo pointer'>
 			{isEditing ? editingTemplate : viewTemplate}
 		</li>
 	);
