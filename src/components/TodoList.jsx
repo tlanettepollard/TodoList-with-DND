@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
-export default function TodoList(props) {
-	const taskList = props.tasks.map((task) => (
+const TodoList = (props) => {
+	const [tasks, setTasks] = useState(props.tasks);
+
+	const taskList = tasks.map((task) => (
 		<TodoItem
 			id={task.id}
 			name={task.name}
@@ -16,4 +18,6 @@ export default function TodoList(props) {
 			{taskList}
 		</ul>
 	);
-}
+};
+
+export default TodoList;

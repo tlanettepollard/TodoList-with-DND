@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import crossIcon from '../images/icon-cross.svg';
 import editIcon from '../images/icons8-edit.svg';
 
-export default function TodoItem(props) {
+const TodoItem = (props) => {
 	const [isEditing, setEditing] = useState(false);
 	const [newName, setNewName] = useState('');
 
@@ -90,4 +90,6 @@ export default function TodoItem(props) {
 			{isEditing ? editingTemplate : viewTemplate}
 		</li>
 	);
-}
+};
+
+export default TodoItem;
