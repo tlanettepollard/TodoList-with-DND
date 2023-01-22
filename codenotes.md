@@ -97,6 +97,7 @@ Resource:
 - [The Best Way to Add Dark Mode to Your React/Sass Project](https://javascript.plainenglish.io/the-best-way-to-add-dark-mode-to-your-react-sass-project-ce3ae3bd8616), by Jimmy Lam -- The article I used to help with Theme switcher
 - [Coding a CSS Theme Switcher: A Multitude of Ways](https://joshuatz.com/posts/2019/coding-a-css-theme-switcher-a-multitude-of-web-dev-options/#method-b)
 - [Mileine](https://github.com/mileine/frontendmentor-todo-app-react)-- used as reference for organizing theme and building theme changer.
+- [Implementing Dark Mode in your React App with SCSS ](https://dev.to/cmcwebcode40/simple-react-dark-mode-with-scss-lae)
 
 ### 03/06/2022
 
