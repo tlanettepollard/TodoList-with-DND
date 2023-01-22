@@ -58,6 +58,7 @@ Resources:
 - [Mileine](https://github.com/mileine/frontendmentor-todo-app-react)-- used as reference for organizing theme and building theme changer.
 - [Kremenovic](https://github.com/kremenovic/react-todo-app)-- resource sites for working with dark theme
 - [How to create a dark mode in sass](https://medium.com/@katiemctigue/how-to-create-a-dark-mode-in-sass-609f131a3995) by Katie McTigue
+- [Theme switcher with React Context](https://codesandbox.io/s/z10hd?file=/src/App.tsx)
 
 ### 02/21/2022
 
@@ -93,8 +94,9 @@ Hey! I'm back. No coding the past few days due to house work. Now I'm ready to f
 
 Resource:
 
-- [The Best Way to Add Dark Mode to Your React/Sass Project](https://javascript.plainenglish.io/the-best-way-to-add-dark-mode-to-your-react-sass-project-ce3ae3bd8616), by Jimmy Lam
+- [The Best Way to Add Dark Mode to Your React/Sass Project](https://javascript.plainenglish.io/the-best-way-to-add-dark-mode-to-your-react-sass-project-ce3ae3bd8616), by Jimmy Lam -- The article I used to help with Theme switcher
 - [Coding a CSS Theme Switcher: A Multitude of Ways](https://joshuatz.com/posts/2019/coding-a-css-theme-switcher-a-multitude-of-web-dev-options/#method-b)
+- [Mileine](https://github.com/mileine/frontendmentor-todo-app-react)-- used as reference for organizing theme and building theme changer.
 
 ### 03/06/2022
 
@@ -192,6 +194,12 @@ Happy New Year! It has been a long time since I've worked on this project. I did
 Resources:
 
 - [How to add Drag and Drop in React with React Beautiful DND](https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/)
+
+### 01/22/2023
+
+Hi. I'm trying again with my Todo List. I'm using another tutorial so that I can include local storage. There are five articles for this tutorial. I will also use the MDN tutorial for the filtering.
+
+Resources: -[Build a React CRUD Todo App](https://dev.to/joelynn/build-a-react-crud-todo-app-add-read-todos-1l8a)-- five articles
 
 ---
 
