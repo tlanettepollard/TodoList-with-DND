@@ -5,7 +5,7 @@ import ThemeProvider from './components/contexts/ThemeProvider';
 
 import '../src/scss/main.scss';
 
-function App() {
+const App = () => {
 	return (
 		<ThemeProvider>
 			<div className='wrapper'>
